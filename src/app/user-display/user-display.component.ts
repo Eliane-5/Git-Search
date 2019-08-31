@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user-class/user';
 import { GitRequestService } from '../git-http/git-request.service';
+import { Repositories } from '../repositories';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-user-display',
   templateUrl: './user-display.component.html',
@@ -8,11 +11,16 @@ import { GitRequestService } from '../git-http/git-request.service';
 })
 export class UserDisplayComponent implements OnInit {
   user:User;
-  constructor(private gitService:GitRequestService) { }
-
-  ngOnInit() {
-    this.gitService.gitRequest()
-    this.user = this.gitService.user 
+  repos: Repositories[];
+  constructor(private gitService:GitRequestService, private route:ActivatedRoute) {
   }
 
+  ngOnInit() {
+    let parameter = this.route.snapshot.paramMap.get('name');
+    console.log(parameter)
+    this.gitService.gitRequest(parameter);
+    this.gitService.gitRepoRequest(parameter);
+    this.user = this.gitService.user;
+    this.repos = this.gitService.newrepo;
+  }
 }
