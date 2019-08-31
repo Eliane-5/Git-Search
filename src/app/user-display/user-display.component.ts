@@ -17,7 +17,6 @@ export class UserDisplayComponent implements OnInit {
 
   ngOnInit() {
     let parameter = this.route.snapshot.paramMap.get('name');
-    console.log(parameter)
     this.gitService.gitRequest(parameter);
     this.gitService.gitRepoRequest(parameter);
     this.user = this.gitService.user;
