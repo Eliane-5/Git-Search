@@ -1,16 +1,45 @@
-<form  #data="ngForm">
-    <div class="form-group">
-        <input type="text" class="form-control" name="find" placeholder="User-Name" #find>
-        <button type="submit" (click)="searchFor(find.value)">Search</button>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>Github-Search Engine</h1>
+        <p>This is a fast and reliable application for searching any github user and displaying their information and all of their repositories.</p>
     </div>
-</form>
-<div>
-    <p>user-name: {{user.login|bold}}</p>
-    <img src="{{user.avatar_url}}">
-    <p>followers: {{user.followers}}</p>
-    <p>following: {{user.following}}</p>
-    <p>Repositories: {{user.public_repos}}</p>
- </div> 
- <div appHover *ngFor='let repo of newRepos'>
-    {{repo.name|bold}} <br> {{repo.description}}
+    <h2>Search</h2>
+    <form  #data="ngForm">
+    <div class="form-group row">
+        <div class="col-xs-4">
+            <label for="ex4">Enter Github User-Name:</label>
+                <input class="form-control" name="find" placeholder="User-Name" #find size="30">
+                <button class="btn btn-secondary" type="button" (click)="searchFor(find.value)">Search</button>
+            </div>
+        </div>   
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="flex">
+                <div class="image">
+                    <img src="{{user.avatar_url}}" width="200px">
+                </div>
+                <div class="description">
+                    <h4>User-name: {{user.login|bold}}</h4>
+                    <h4>followers: {{user.followers}}</h4>
+                    <h4>following: {{user.following}}</h4>
+                </div>
+            </div>
+            
+            
+            <h2 class="repo">Repositories: {{user.public_repos}}</h2>
+            <div id="repodes" *ngFor='let repo of newRepos'>
+                <table style="width:100%">
+                   <tr appHover>
+                       <th>{{repo.name|bold}}</th>
+                   </tr> 
+                   <tr>
+                        <td>{{repo.description|bold}}</td>
+                   </tr> 
+                </table>
+                 <br> 
+            </div>
+        </div>
+    </div>
+    
 </div>

@@ -1,12 +1,32 @@
-<p>click here to go back to search</p>
-<button routerLink='/search'>search</button>
- <div>
-    <p>user-name: {{user.login|bold}}</p>
-    <img src="{{user.avatar_url}}">
-    <p>followers: {{user.followers}}</p>
-    <p>following: {{user.following}}</p>
-    <p>Repositories: {{user.public_repos}}</p>
- </div>    
-<div appHover *ngFor='let repo of repos'>
-    {{repo.name|bold}} <br> {{repo.description}}
+<div class="container-fluid">
+    <div>
+        <h3>click here to go back to search</h3>
+        <button class="btn btn-secondary" type="button" routerLink='/search'>search</button> 
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="flex">
+                <div class="image">
+                    <img src="{{user.avatar_url}}" width="200px">
+                </div>
+                <div class="description">
+                    <h4>user-name: {{user.login|bold}}</h4>
+                    <h4>followers: {{user.followers}}</h4>
+                    <h4>following: {{user.following}}</h4>
+                </div>
+            </div>
+            <h2 class="repo">Repositories: {{user.public_repos}}</h2>
+            <div id="repodes" *ngFor='let repo of repos'>
+                <table style="width:100%">
+                    <tr appHover>
+                        <th>{{repo.name|bold}}</th>
+                    </tr>
+                    <tr>
+                        <td>{{repo.description}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+    

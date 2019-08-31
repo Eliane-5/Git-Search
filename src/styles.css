@@ -1,1 +1,37 @@
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+.container-fluid{
+    font-family: 'Manjari', sans-serif;
+}
+.row{
+    padding-right:5%;
+    padding-left:5%; 
+}
+h2{
+    text-decoration: underline;
+    text-align: center;
+}
+button{
+    margin: 5px;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.description{
+    padding-top: 5%;
+}
+.repo{
+    margin-top: 5%;
+}
+#repodes{
+    border: 1px solid black;
+    margin-bottom: 3%;
+    /* width: 50%; */
+}
+th,td{
+    padding-left: 5%;
+}
+th{
+    padding-top: 2%;
+}
