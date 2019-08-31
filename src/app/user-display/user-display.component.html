@@ -1,5 +1,12 @@
-<p>user-name: {{user.login}}</p>
-<img src="{{user.avatar_url}}">
-<p>followers: {{user.followers}}</p>
-<p>following: {{user.following}}</p>
-<p>Repositories: {{user.public_repos}}</p>
+<p>click here to go back to search</p>
+<button routerLink='/search'>search</button>
+ <div>
+    <p>user-name: {{user.login|bold}}</p>
+    <img src="{{user.avatar_url}}">
+    <p>followers: {{user.followers}}</p>
+    <p>following: {{user.following}}</p>
+    <p>Repositories: {{user.public_repos}}</p>
+ </div>    
+<div appHover *ngFor='let repo of repos'>
+    {{repo.name|bold}} <br> {{repo.description}}
+</div>
