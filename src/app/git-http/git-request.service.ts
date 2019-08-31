@@ -55,7 +55,6 @@ export class GitRequestService {
             this.newrepo.push(response[i])
           }   
         }
-        console.log(this.repo)
         resolve();
       },error=>{
         this.user.login = "Please reload the page!";
