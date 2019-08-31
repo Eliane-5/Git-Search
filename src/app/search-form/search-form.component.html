@@ -1,0 +1,16 @@
+<form  #data="ngForm">
+    <div class="form-group">
+        <input type="text" class="form-control" name="find" placeholder="User-Name" #find>
+        <button type="submit" (click)="searchFor(find.value)">Search</button>
+    </div>
+</form>
+<div>
+    <p>user-name: {{user.login|bold}}</p>
+    <img src="{{user.avatar_url}}">
+    <p>followers: {{user.followers}}</p>
+    <p>following: {{user.following}}</p>
+    <p>Repositories: {{user.public_repos}}</p>
+ </div> 
+ <div appHover *ngFor='let repo of newRepos'>
+    {{repo.name|bold}} <br> {{repo.description}}
+</div>
